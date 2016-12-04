@@ -1,0 +1,23 @@
+{% extends "shop/base.html" %}
+
+{% block title %}
+    {% if category %}
+        {{ category.title }}
+    {% else %}
+        Product
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div class="product-detail">
+        <img src="{{ product.image.url }}"/>
+        <h1>{{ product.name }}</h1>
+        <h2>
+            <a href="{{ product.category.get_absolute_url }}">
+                {{ product.category }}
+            </a>
+        </h2>
+        <p class="price">${{ product.price }}</p>
+        {{ product.description|linebreaks }}
+    </div>
+{% endblock %}
