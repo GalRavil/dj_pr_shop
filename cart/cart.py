@@ -5,7 +5,7 @@ from shop.models import Product
 
 
 class Cart(object):
-    def __init__(self):
+    def __init__(self, request):
         self.session = request.session
         cart = self.session.get(settings.CART_SESSION_ID)
 
@@ -51,7 +51,7 @@ class Cart(object):
 
         for item in self.cart.values():
             item['price'] = Decimal(item['price'])
-            item['total_price'] = item['price'] + item['quantity']
+            item['total_price'] = item['price'] * item['quantity']
             yield item
 
     def __len__(self):

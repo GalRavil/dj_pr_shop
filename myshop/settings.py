@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'shop',
     'sorl.thumbnail',
     'cart',
+    'debug_toolbar',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -48,6 +49,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -111,4 +113,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # Key that we are going to use to store the cart in the user session.
 # Since Django sessions are per-visitor, we can use the same cart session
 # key for all sessions.
-CART_SESSIONS_ID = 'cart'
+CART_SESSION_ID = 'cart'
+
+# django-toolbar
+INTERNAL_IPS = '127.0.0.1'
