@@ -119,3 +119,6 @@ CART_SESSION_ID = 'cart'
 
 # django-toolbar
 INTERNAL_IPS = '127.0.0.1'
+
+# write emails to the standard output
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
