@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'sorl.thumbnail',
     'cart',
     'debug_toolbar',
+    'orders',
 )
 
 MIDDLEWARE_CLASSES = (
