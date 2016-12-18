@@ -1,3 +1,4 @@
+from django.core.urlresolvers import reverse
 from django.contrib import admin
 from django.http import HttpResponse
 
@@ -31,6 +32,12 @@ def export_to_csv(model_admin, request, queryset):
 export_to_csv.short_description = 'Export_to CSV'
 
 
+def order_detail(obj):
+    return '<a href="{}">View</a>'.format(
+        reverse('orders:admin_order_detail', args=[obj.id]))
+order_detail.allow_tags = True  # to avoid auto-escaping
+
+
 class OrderItemInline(admin.TabularInline):
     model = OrderItem
     raw_id_fields = ['product']
@@ -46,7 +53,8 @@ class OrderAdmin(admin.ModelAdmin):
                     'city',
                     'paid',
                     'created',
-                    'updated']
+                    'updated',
+                    order_detail]
     list_filter = ['paid', 'created', 'updated']
     inlines = [OrderItemInline]
     actions = [export_to_csv]
