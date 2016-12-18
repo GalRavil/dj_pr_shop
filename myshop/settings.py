@@ -42,6 +42,8 @@ INSTALLED_APPS = (
     'cart',
     'debug_toolbar',
     'orders',
+    'paypal.standard.ipn',
+    'payment',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -122,3 +124,9 @@ INTERNAL_IPS = '127.0.0.1'
 
 # write emails to the standard output
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# django-paypal
+# eamil of your paypal account
+PAYPAL_RECEIVER_EMAIL = 'mypaypalemail@myshop.com'
+# sandbox
+PAYPAL_TEST = True

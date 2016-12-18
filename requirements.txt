@@ -1,3 +1,4 @@
+paypal
 amqp==2.1.3
 Babel==2.3.4
 billiard==3.5.0.2
