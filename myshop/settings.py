@@ -45,6 +45,7 @@ INSTALLED_APPS = (
     'paypal.standard.ipn',
     'payment',
     'weasyprint',
+    'coupons',
 )
 
 MIDDLEWARE_CLASSES = (
